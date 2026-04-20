@@ -12,9 +12,11 @@ def home():
     # Restituisce direttamente il file HTML
     return FileResponse('static/index.html')
 
-from datetime import datetime
-
-@app.get("/ora")
-def dammi_ora():
-    # Restituiamo un dizionario (JSON)
-    return {"orario": datetime.now().strftime("%H:%M:%S")}
+@app.get("/login") #endpoint che controlla il login 
+def controlla(username: str, password: str):
+    print("username", username, "password", password)
+    if username == "admin" and password == "xxx123":
+        risposta = {"messaggio": "1"} #perchè ci sono lingue diverse per ogni stato , se username e password sono corretti il messaggio è 1
+    else: 
+        risposta = {"messaggio": "0"} #se username e password non sono corretti il messaggio e 0
+    return(risposta)
