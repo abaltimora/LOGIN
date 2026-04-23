@@ -12,7 +12,7 @@ def home():
     # Restituisce direttamente il file HTML
     return FileResponse('static/index.html')
 
-@app.get("/login") #endpoint che controlla il login 
+@app.get("/login2") #endpoint che controlla il login 
 def controlla(username: str, password: str):
     print("username", username, "password", password)
     if username == "admin" and password == "xxx123":
@@ -20,3 +20,10 @@ def controlla(username: str, password: str):
     else: 
         risposta = {"messaggio": "0"} #se username e password non sono corretti il messaggio e 0
     return(risposta)
+
+@app.get("/login2") #endpoint che controlla il login 
+def controlla(username: str = Form(...), password: str= Form(...)):
+    if username.lower() == "admin" and password == "xxx123":
+        return = {"messaggio": "1"} #perchè ci sono lingue diverse per ogni stato , se username e password sono corretti il messaggio è 1
+    else: 
+        return = {"messaggio": "0"} #se username e password non sono corretti il messaggio e 0
