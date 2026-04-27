@@ -7,7 +7,7 @@ import pandas as pd
 
 app = FastAPI()
 
-df = pd.read_excel("/workspaces/LOGIN/Dati.xlsx")
+df = pd.read_excel("Dati (1).xlsx")
 
 
 # Spieghiamo a FastAPI che i file dentro "static" sono accessibili
@@ -20,7 +20,7 @@ def home():
 
 @app.post("/loginPandas")
 def controlla_password(username: str = Form(...), password: str= Form(...)):
-    risultato = df[(df["USERNAME" == username]) & (df["PASSWORD"] == password)]
+    risultato = df[(df["USERNAME"] == username) & (df["PASSWORD"] == password)]
 
     if not risultato.empty:
         return {"messaggio": 1}

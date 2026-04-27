@@ -47,5 +47,5 @@ async function loggatiPandas() {
 
 
 document.getElementById('btn_registrati').addEventListener('click', controllaCredenziali);
-document.getElementById('btn_registrati2').addEventListener('click', loggatiPandas);
+document.getElementById('btn_registrati2').addEventListener('click', loggati);
 document.getElementById('btn_Pandas').addEventListener('click', loggatiPandas);
